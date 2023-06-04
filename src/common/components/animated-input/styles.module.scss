@@ -1,0 +1,224 @@
+@import "scss";
+
+.animatedInput {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  background: inherit;
+  position: relative;
+  height: min-content;
+  .errorBox {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+    padding-left: 10px;
+    &__text {
+      font-size: 0.8125rem;
+      color: $aurora-0;
+    }
+    &Enter {
+      opacity: 0;
+      transform: scale(0.5) translateX(-30px);
+    }
+    &EnterActive {
+      opacity: 1;
+      transform: scale(1) translateX(0);
+      transition: 120ms ease-in-out;
+    }
+    &Exit {
+      opacity: 1;
+      transform: scale(1) translateX(0);
+    }
+    &ExitActive {
+      opacity: 0;
+      transition: 120ms ease-in-out;
+      transform: scale(0.5) translateX(-30px);
+    }
+  }
+}
+
+.wrap {
+  position: relative;
+  width: 100%;
+  background: inherit;
+  z-index: 3;
+  .input {
+    width: 100%;
+    height: 54px;
+    border-radius: 14px;
+    background: $polar-night-2;
+    padding: 0 20px;
+    border: 1px solid transparent;
+    transition: 160ms linear;
+    font-size: 1rem;
+    white-space: pre-wrap;
+    user-select: text;
+    &:not(:placeholder-shown),
+    &:focus {
+      background: transparent;
+      & ~ .placeholder {
+        font-size: 0.8125rem;
+        top: -7px;
+        left: 10px;
+        background: inherit;
+        color: $polar-night-6;
+      }
+    }
+    &:hover {
+      transition: 80ms linear;
+    }
+    &:focus {
+      box-shadow: inset 0 0 0 1px $frost-2;
+    }
+    &.withVisibilityButton {
+      padding-right: 60px;
+    }
+  }
+  .placeholder {
+    position: absolute;
+    top: 18px;
+    left: 14px;
+    padding: 0 4px;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: 80ms linear;
+    pointer-events: none;
+    background: transparent;
+  }
+  .eye {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $polar-night-7;
+    transition: 80ms linear;
+    user-select: none;
+    width: 54px;
+    height: 100%;
+    &:hover {
+      color: $polar-night-7;
+    }
+    .iconWrap {
+      position: relative;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .icon {
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.default.wrap {
+  .input {
+    color: $snow-storm-3;
+    &:not(:placeholder-shown) {
+      border-color: $polar-night-5;
+    }
+    &:hover {
+      border-color: $frost-2;
+      & ~ .placeholder {
+        color: $frost-2;
+      }
+    }
+    &:focus {
+      border-color: $frost-2;
+      & ~ .placeholder {
+        color: $frost-2;
+        font-weight: 500;
+      }
+    }
+  }
+  .placeholder {
+    color: $polar-night-7;
+  }
+}
+
+.error.wrap {
+  .input {
+    border-color: $aurora-0;
+    &:not(:placeholder-shown),
+    &:focus {
+      & ~ .placeholder {
+        color: $aurora-0;
+      }
+    }
+    &:focus {
+      box-shadow: inset 0 0 0 1px $aurora-0;
+      ~ .placeholder {
+        font-weight: 500;
+      }
+    }
+  }
+  .placeholder {
+    color: $aurora-0;
+  }
+}
+
+.pending.wrap {
+  pointer-events: none;
+  .input {
+    color: $frost-2;
+    border-color: $frost-2;
+    &:not(:placeholder-shown),
+    &:focus {
+      box-shadow: none;
+      & ~ .placeholder {
+        color: $frost-2;
+      }
+    }
+  }
+  .placeholder {
+    color: $frost-2;
+  }
+  .eye {
+    opacity: 0;
+  }
+}
+
+// PLATFORM_ROOLS
+@include mobile-rools {
+  .animatedInput {
+    .errorBox {
+      position: static;
+      transform: initial;
+      &__text {
+        white-space: normal;
+        background: transparent;
+        color: $aurora-0;
+        border-radius: 0;
+        padding: 0;
+        font-size: 0.75rem;
+      }
+      &__arrow {
+        display: none !important;
+      }
+      &Enter {
+        opacity: 1;
+        transform: initial;
+      }
+      &EnterActive {
+        opacity: 1;
+        transform: initial;
+        transition: initial;
+      }
+      &Exit {
+        opacity: 1;
+        transform: initial;
+      }
+      &ExitActive {
+        opacity: 1;
+        transition: initial;
+        transform: initial;
+      }
+    }
+  }
+}

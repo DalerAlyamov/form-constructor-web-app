@@ -1,0 +1,229 @@
+@import "../../scss";
+
+.auth {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: $polar-night-1;
+  /* CONTAINER */
+  .container {
+    width: 100%;
+    height: max-content;
+    padding: 85px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+  /* LOADING */
+  .loading {
+    width: 140px;
+    height: 140px;
+  }
+  /* FORM */
+  .form {
+    max-width: 340px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background: $polar-night-1;
+    align-items: center;
+  }
+  /* INPUT_GROUP */
+  .flex1 {
+    background: $polar-night-1;
+  }
+  /*BUTTON_GROUP*/
+  .buttonGroup {
+    &.enter {
+      opacity: 0;
+    }
+    &.enterActive {
+      opacity: 1;
+      transition: 100ms linear;
+    }
+    &.exit {
+      opacity: 1;
+      transition: 100ms linear;
+    }
+    &.exitActive {
+      opacity: 0;
+    }
+  }
+  /* REMEMBER_USER_BUTTON */
+  .rememberUserButton {
+    cursor: pointer;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-left: 15px;
+    width: 100%;
+    border-radius: 16px;
+    color: $polar-night-6;
+    transition: 100ms linear;
+    &.pending {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .buttonContent {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+    .checkbox {
+      color: $polar-night-7;
+      transition: 100ms linear;
+    }
+    &.active {
+      .checkbox {
+        color: $frost-3;
+      }
+    }
+  }
+  /* CONTAINED & TEXT & ALT_TEXT & OUTLINED BUTTONS */
+  .containedButton,
+  .textButton,
+  .outlinedButton,
+  .altTextButton {
+    cursor: pointer;
+    width: 100%;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 100;
+    border: 1px solid transparent;
+    transition: 100ms linear;
+  }
+  /* CONTAINED BUTTON */
+  .containedButton {
+    background: $frost-3;
+    color: $snow-storm-0;
+    &.disabled {
+      pointer-events: none;
+      opacity: 0.7;
+      background: $polar-night-3;
+    }
+  }
+  /* TEXT BUTTON */
+  .textButton {
+    color: $frost-3;
+    &.disabled {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+  }
+  /* ALT_TEXT BUTTONS */
+  .altTextButton {
+    color: $polar-night-6;
+    text-transform: none;
+    &.pending {
+      pointer-events: none;
+    }
+  }
+  /* OUTLINED */
+  .outlinedButton {
+    border: 1px solid $polar-night-7;
+    color: $polar-night-3;
+  }
+}
+
+// PAGE_ANIMATION
+.auth.enter {
+  .form {
+    opacity: 0;
+  }
+}
+.auth.enterActive {
+  .form {
+    opacity: 1;
+    transition: opacity 160ms ease-in;
+  }
+}
+.auth.exit {
+  .form {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.auth.exitActive {
+  .form {
+    opacity: 0;
+    transition: opacity 160ms ease-out;
+  }
+}
+.auth.fadeOut {
+  transition: 160ms ease-out;
+  opacity: 0;
+}
+
+// PLATFORM_ROOLS
+@include desktop-rools {
+  .auth {
+    height: 100vh;
+    /* REMEMBER_USER_BUTTON */
+    .rememberUserButton {
+      &:hover {
+        background: $polar-night-2;
+      }
+    }
+    /* CONTAINED BUTTON */
+    .containedButton {
+      &:hover {
+        background: $frost-2;
+      }
+    }
+    /* TEXT BUTTON */
+    .textButton {
+      &:hover {
+        background: $polar-night-2;
+      }
+    }
+    /* ALT_TEXT BUTTON */
+    .altTextButton {
+      &:hover {
+        background: $polar-night-2;
+      }
+    }
+    /* OUTLINED BUTTON */
+    .outlinedButton {
+      &:hover {
+        background: $polar-night-2;
+      }
+    }
+  }
+}
+@include tablet-rools {
+  .auth {
+    /* CONTAINER */
+    .container {
+      padding: 70px 25px;
+    }
+    /* LOADING */
+    .loading {
+      width: 140px;
+      height: 140px;
+    }
+  }
+}
+@include mobile-rools {
+  .auth {
+    min-height: 100vh;
+    /* CONTAINER */
+    .container {
+      padding: 160px 25px;
+      gap: 40px;
+    }
+    /* LOADING */
+    .loading {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}

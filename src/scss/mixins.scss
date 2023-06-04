@@ -1,0 +1,17 @@
+@mixin desktop-rools {
+  @media (min-width: 700px) {
+    @content;
+  }
+}
+
+@mixin tablet-rools {
+  @media (max-width: 699px) {
+    @content;
+  }
+}
+
+@mixin mobile-rools {
+  @media (max-width: 440px) {
+    @content;
+  }
+}
