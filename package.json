@@ -3,21 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "@emotion/css": "^11.10.6",
-    "@rematch/core": "^2.2.0",
     "axios": "^1.4.0",
-=======
-    "@rematch/core": "^2.2.0",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
->>>>>>> 1859b10 (.)
-=======
     "@emotion/css": "^11.10.6",
     "@rematch/core": "^2.2.0",
->>>>>>> a49cb0a (.)
     "classnames": "^2.3.2",
     "daler-ripple-box": "^1.1.0",
     "react": "^18.2.0",
@@ -53,21 +44,10 @@
     ]
   },
   "devDependencies": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a49cb0a (.)
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/react-transition-group": "^4.4.5",
     "typescript-plugin-css-modules": "^5.0.0"
-<<<<<<< HEAD
-=======
-    "@types/react-transition-group": "^4.4.5",
-    "typescript-plugin-css-modules": "^4.2.2"
->>>>>>> 1859b10 (.)
-=======
->>>>>>> a49cb0a (.)
   }
 }
